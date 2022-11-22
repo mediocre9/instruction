@@ -13,6 +13,50 @@ void odd_even(int number){
 }
 int main() {
      cout << "Hello, World!"<<endl;
+    
+     char character;
+    cout<<"Enter Character : ";
+    cin>>character;
+    
+        switch(character)
+    {
+        case 'a':
+        
+            cout<<"Its is Vowel "<<endl;
+            break;
+            
+        
+        case 'e':
+        
+            cout<<"Its is Vowel"<<endl;
+            break;
+            
+        
+        case 'i':
+        
+            cout<<"Its is Vowel"<<endl;
+            break;
+            
+        
+        case 'o':
+        
+            cout<<"Its is Vowel"<<endl;
+            break;
+            
+        
+        case 'u':
+        
+            cout<<"Its is Vowel"<<endl;
+            break;
+            
+        default:
+            cout<<"Its is consonant"<<endl;
+            break;
+            
+            
+        
+    }
+   
      
     int number;
     cout<<"Enter Number Please :";
