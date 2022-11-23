@@ -35,7 +35,54 @@ void multiplication_Table(int table_number){
     }
 }
 
+void deleteElement(int arr[], int size)
 
+{
+
+	int val, temp, flag;	
+	cout<<"Enter a value you want to delete : "; cin>>val;
+
+	for(int i = 0 ; i < size ; i++)
+
+	{
+
+		if(arr[i] == val)
+
+		{
+
+			temp = arr[i];
+
+			arr[i] = arr[i+1];
+
+			arr[i+1] = temp;
+
+			flag = 1;
+
+		}
+
+	}
+
+	if(flag == 0)
+
+	{
+
+		cout<<"\nValue not Found..";
+
+	}
+
+	else{
+
+		cout<<"\nValue deleted : ";
+
+		for(int i = 0 ; i < size-1 ; i++){
+
+			cout<< arr[i] <<" ";
+
+		}
+
+	}
+
+}
 
 int main() {    
 	
@@ -98,6 +145,10 @@ int main() {
 	cout<<"\nAre you with me : "; cin>>charac;
 	
 	areYouWithMe(charac);
+	
+    int arr[] = {2,4,6,8,10};
 
+	int size = sizeof(arr)/sizeof(arr[0]);
+	deleteElement(arr, size); 
     return 0;
 }
