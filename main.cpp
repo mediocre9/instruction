@@ -27,7 +27,25 @@ void areYouWithMe(char ch){
 	}
 }
 
+void multiplication_Table(int table_number){
+    for(int i=1 ; i<11 ; i++)
+    {
+        cout<<table_number<<"*"<<i<<"= "<<table_number*i<<"\n";
+        
+    }
+}
+
+
+
 int main() {    
+	
+    int table_number;
+    cout<<"Enter Table Number : ";
+    cin>>table_number;
+    cout<<"\n";
+    multiplication_Table(table_number);
+	
+	
     char character;
     cout<<"Enter Character : ";
     cin>>character;
