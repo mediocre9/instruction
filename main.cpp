@@ -5,16 +5,30 @@ using namespace std;
 
 void odd_even(int number){
     if(number%2==0){
-        cout<<"Its is Even Number ";
+        cout<<"It is Even Number ";
         
     }else{
-        cout<<"Its is Odd Number ";
+        cout<<"It is Odd Number ";
     }
 }
-int main() {
-     cout << "Hello, World!"<<endl;
-    
-     char character;
+
+void areYouWithMe(char ch){
+	if(ch == 'y' || ch == 'Y'){
+		cout<<"\nWelcom bot...\n";
+	}
+	else{
+		while(ch != 'n' || ch != 'N' || ch == 'y' || ch == 'Y'){
+			cout<<"\n\nyou can't leave..\n";
+			cout<<"\nAgain enter n/y : ";
+			cin>>ch;
+			areYouWithMe(ch);
+			break;
+		}
+	}
+}
+
+int main() {    
+    char character;
     cout<<"Enter Character : ";
     cin>>character;
     
@@ -22,39 +36,37 @@ int main() {
     {
         case 'a':
         
-            cout<<"Its is Vowel "<<endl;
+            cout<<"It is Vowel "<<endl;
             break;
             
         
         case 'e':
         
-            cout<<"Its is Vowel"<<endl;
+            cout<<"It is Vowel"<<endl;
             break;
             
         
         case 'i':
         
-            cout<<"Its is Vowel"<<endl;
+            cout<<"It is Vowel"<<endl;
             break;
             
         
         case 'o':
         
-            cout<<"Its is Vowel"<<endl;
+            cout<<"It is Vowel"<<endl;
             break;
             
         
         case 'u':
         
-            cout<<"Its is Vowel"<<endl;
+            cout<<"It is Vowel"<<endl;
             break;
             
         default:
-            cout<<"Its is consonant"<<endl;
+            cout<<"It is consonant"<<endl;
             break;
             
-            
-        
     }
    
      
@@ -62,7 +74,12 @@ int main() {
     cout<<"Enter Number Please :";
     cin>>number;
     odd_even(number);
-   
+
+	//My work
+	char charac;
+	cout<<"\nAre you with me : "; cin>>charac;
+	
+	areYouWithMe(charac);
 
     return 0;
 }
