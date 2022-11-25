@@ -1,3 +1,6 @@
+# Upload Separate Files for solving issues. You are not allowed to solve problems in main.cpp.
+
+
 # Instructions
 
 1. `Fork` the repository (means copy the original repository to your account).
