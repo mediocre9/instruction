@@ -59,14 +59,21 @@
         };
 
         class Triangle extends Shape {
+            constructor(width, height,secondX,secondY) {
+                super(width, height);
+                this.x2=secondX;
+                this.y2=secondY;
+
+
+            }
 
             area() {
                 let canva = document.getElementById('canvas');
                 let ctx = canva.getContext('2d');
                 ctx.beginPath()
                 ctx.moveTo(50, 50);
-                ctx.lineTo(100, 75);
-                ctx.lineTo(100, 25);
+                ctx.lineTo(this.x, this.y);
+                ctx.lineTo(this.x2, this.y2);
                 ctx.fill();
 
             }
@@ -76,7 +83,7 @@
         let instance = new Rectangle(100, 100);
         instance.area();
 
-        let Triangle_ = new Triangle();
+        let Triangle_ = new Triangle(100,75,100,25);
         Triangle_.area();
 
 
