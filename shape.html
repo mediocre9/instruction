@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes</title>
+
+
+    <style>
+        #canvas {
+            position: absolute;
+            top: 30%;
+            left: 40%;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="canvas"></canvas>
+    <script>
+
+        class Shape {
+            constructor(width, height) {
+                if (this.constructor === Shape) {
+                    throw new Error("You cannot create an instance of Abstract Class");
+
+                } else {
+
+                    this.x = width;
+                    this.y = height;
+
+                }
+
+
+            }
+            area() {
+                throw new Error("Abstract Method has no implementation");
+            };
+        };
+        class Rectangle extends Shape {
+
+            constructor(width, height) {
+                super(width, height);
+
+            }
+            area() {
+                let canva = document.getElementById('canvas');
+                let ctx = canva.getContext('2d');
+                ctx.fillRect(150, 0, this.x, this.y);
+                ctx.clearRect(160, 10, 80, 80);
+                ctx.strokeRect(165, 15, 70, 70);
+
+            }
+
+        };
+
+        class Triangle extends Shape {
+            constructor(width, height,secondX,secondY) {
+                super(width, height);
+                this.x2=secondX;
+                this.y2=secondY;
+
+
+            }
+
+            area() {
+                let canva = document.getElementById('canvas');
+                let ctx = canva.getContext('2d');
+                ctx.beginPath()
+                ctx.moveTo(50, 50);
+                ctx.lineTo(this.x, this.y);
+                ctx.lineTo(this.x2, this.y2);
+                ctx.fill();
+
+            }
+
+        };
+
+        let instance = new Rectangle(100, 100);
+        instance.area();
+
+        let Triangle_ = new Triangle(100,75,100,25);
+        Triangle_.area();
+
+
+        // Refrerrence: Drwaing Lines 
+        //  https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+
+
+
+
+    </script>
+</body>
+
+</html>
