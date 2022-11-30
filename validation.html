@@ -63,10 +63,10 @@
                 <li><input type='text' name='text1' id="Email" placeholder="validate Email"
                         onchange="getEmailValue()" /></li>
 
-                <button type="button" onclick="createObj()">Check Email</button>
+                <button type="button" onclick="callingEmailMethod()">Check Email</button>
                 <li><input type='text' name='text2' id="Password" placeholder="validate password"
                         onchange="getPasswordValue()" /></li>
-                <button type="button" onclick="createObj2()">Check Password</button>
+                <button type="button" onclick="callingPasswordMethod()">Check Password</button>
                 <li>&nbsp;</li>
 
             </ul>
@@ -83,38 +83,42 @@
             let password = document.getElementById('Password').value;
             return password;
         }
+        
         class Validatation {
 
-            #emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-            #passwordFormat = /^(?=.*\d)(?=.*[!@##$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
-            emailValidation(emailValue) {
+            static emailValidation(emailValue) {
+                var emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
                 console.log(emailValue);
-                if (emailValue.match(this.#emailFormat)) {
+                if (emailValue.match(emailFormat)) {
                     console.log('Email Format is correct ');
+                    return true;
                 } else {
                     console.log('Email Format is incorrect ');
+                    return false;
                 }
             }
-            passwordValidation(passwordValue) {
+            static passwordValidation(passwordValue) {
 
+                var passwordFormat = /^(?=.*\d)(?=.*[!@##$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
 
-                if (passwordValue.match(this.#passwordFormat)) {
+                if (passwordValue.match(passwordFormat)) {
                     console.log('Password Format is correct ');
+                    return true;
                 } else {
                     console.log('Password Format is incorrect ');
+                    return false;
                 }
             }
 
 
         }
-        function createObj() {
-            let obj = new Validatation();
-            obj.emailValidation(getEmailValue());
+        function callingEmailMethod() {
+
+            Validatation.emailValidation(getEmailValue());
         }
-        function createObj2() {
-            let obj2 = new Validatation();
-            obj2.passwordValidation(getPasswordValue());
+        function callingPasswordMethod() {
+            Validatation.passwordValidation(getPasswordValue());
         }
 
 
