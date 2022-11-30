@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>JavaScript form validation - checking email</title>
+
+    <style>
+        li {
+            list-style-type: none;
+            font-size: 16pt;
+        }
+
+        .mail {
+            margin: auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            width: 400px;
+            background: #D8F1F8;
+            border: 1px soild silver;
+        }
+
+        .mail h2 {
+            margin-left: 38px;
+        }
+
+        input {
+            font-size: 20pt;
+            margin-bottom: 10px;
+        }
+
+        input:focus,
+        textarea:focus {
+            background-color: lightyellow;
+        }
+
+        input submit {
+            font-size: 12pt;
+        }
+
+        .rq {
+            color: #FF0000;
+            font-size: 10pt;
+        }
+
+        button {
+            background-color: rgb(11, 46, 34);
+            color: #D8F1F8;
+            width: 120px;
+            height: 30px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onload='document.form1.text1.focus()'>
+    <div class="mail">
+        <h2>Validate Email and Password</h2>
+        <form name="form1" action="#">
+            <ul>
+                <li><input type='text' name='text1' id="Email" placeholder="validate Email"
+                        onchange="getEmailValue()" /></li>
+
+                <button type="button" onclick="callingEmailMethod()">Check Email</button>
+                <li><input type='text' name='text2' id="Password" placeholder="validate password"
+                        onchange="getPasswordValue()" /></li>
+                <button type="button" onclick="callingPasswordMethod()">Check Password</button>
+                <li>&nbsp;</li>
+
+            </ul>
+        </form>
+
+    </div>
+    <script>
+
+        function getEmailValue() {
+            let email = document.getElementById('Email').value;
+            return email;
+        }
+        function getPasswordValue() {
+            let password = document.getElementById('Password').value;
+            return password;
+        }
+        
+        class Validatation {
+
+            static emailValidation(emailValue) {
+                var emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+                console.log(emailValue);
+                if (emailValue.match(emailFormat)) {
+                    console.log('Email Format is correct ');
+                    return true;
+                } else {
+                    console.log('Email Format is incorrect ');
+                    return false;
+                }
+            }
+            static passwordValidation(passwordValue) {
+
+                var passwordFormat = /^(?=.*\d)(?=.*[!@##$%^&*])(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+
+                if (passwordValue.match(passwordFormat)) {
+                    console.log('Password Format is correct ');
+                    return true;
+                } else {
+                    console.log('Password Format is incorrect ');
+                    return false;
+                }
+            }
+
+
+        }
+        function callingEmailMethod() {
+
+            Validatation.emailValidation(getEmailValue());
+        }
+        function callingPasswordMethod() {
+            Validatation.passwordValidation(getPasswordValue());
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
